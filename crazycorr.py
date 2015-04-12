@@ -9,8 +9,8 @@ def home():
 @app.route("/submit", methods=['POST'])
 def submit():
     name = request.form['username']
-    scrape(name)
-    return render_template('index.html')
+    result = scrape(name)
+    return render_template('index.html', result=result)
 
 
 if __name__ == '__main__':
