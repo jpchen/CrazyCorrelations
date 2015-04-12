@@ -46,8 +46,8 @@ def scrape(arg):
 			break
 		#print results
 	key = max(results.iteritems(), key=operator.itemgetter(1))[0]
-	ans = "There seems to be a strong correlation between your friend's talking about " + key + " and " + random.choice(news) + "!"
-	return ans
+	n = random.choice(news)
+	return [key, n]
 
 if __name__ == "__main__":
     scrape(sys.argv[1:])
