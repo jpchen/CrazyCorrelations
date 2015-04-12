@@ -1,4 +1,6 @@
 *.swp
 *~
+*.*~
+out
 *.pyc
 static/components
