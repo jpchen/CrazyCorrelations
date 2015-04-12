@@ -19,6 +19,8 @@
   <link rel="import"
     href="/static/components/paper-tabs/paper-tabs.html">
   <link rel="import" href="/static/components/paper-input/paper-input.html">
+  <link rel="import" href="/static/components/paper-button/paper-button.html">
+  <link rel="import" href="/static/components/paper-fab/paper-fab.html">
 
 
   <style>
@@ -55,7 +57,7 @@
       width: 200px;
     }
     .container {
-      width: 400px;
+      width: 500px;
     }
   }
   </style>
@@ -63,31 +65,31 @@
 </head>
 
 <body unresolved>
-  <core-header-panel>
 
-    <paper-tabs selected="0" noink="" role="tablist" horizontal="" center="" layout="">
-  
-    <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="">ITEM ONE</paper-tab>
-    <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="">ITEM TWO</paper-tab>
-    <paper-tab role="tab" inline="" flex="" center-center="" horizontal="" layout="" class="">ITEM THREE</paper-tab>
-    
-  </paper-tabs>
 
-  <paper-input-decorator id="decorator" label="label" floatinglabel="{{floatingLabel}}" value="" layout="" vertical="">
-    <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="floating label" aria-label="floating label">
-  </paper-input-decorator>
-  
 
-    <!-- main page content will go here -->
+<core-header-panel>
+  <div class="container" layout vertical center>
+    <div class="send-message" layout horizontal> 
+      <paper-input flex label="Type message..." id="input" value="{{input}}"></paper-input> 
+      <paper-fab class="fab" icon="send" id="sendButton" onclick=handleClick ></paper-fab> 
+    </div>
+  </div>
+</core-header-panel>
 
-  </core-header-panel>
-  
-  <script>
-    var tabs = document.querySelector('paper-tabs');
-    tabs.addEventListener('core-select', function() {
-      console.log("Selected: " + tabs.selected);
-    });
-  </script>
+
+<script>
+  var handleClick = function(e) { 
+    console.log("hahaha");
+  };
+
+  // var tabs = document.querySelector('paper-fab');
+  // tabs.addEventListener('on-tap', function() {
+  //     console.log("Selected: ");
+  // });
+        
+    </script>
+
 </body>
 
 </html>
