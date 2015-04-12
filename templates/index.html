@@ -23,6 +23,7 @@
   <link rel="import" href="/static/components/paper-button/paper-button.html">
   <link rel="import" href="/static/components/paper-fab/paper-fab.html">
   <link rel="import" href="/static/components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="/static/components/paper-icon-button/paper-icon-button.html">
 
 
   <style>
@@ -106,10 +107,11 @@
 		              <input name= "username" is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="floating label" aria-label="floating label">
 		            </paper-input-decorator>
 
-		          </label>
+		         	 <input type="submit" class="submit-btn" type="hidden" class="button radius"/>
 		        </fieldset>
 		        <!-- <button type="submit" width="15" style="background-image: url('images/cancel.png');"/> -->
-		        <input type="submit" type="hidden" class="button radius"/>
+		       
+		        
 		        <!-- <paper-fab icon="send" id="sendButton" on-tap="{{handleClick}}"></paper-fab> -->
 		      </form>
 
@@ -147,6 +149,8 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
   <script>
+
+
     $('#form').submit(function() {
     	console.log("HERE");
     	$(".side").append("<h3>Crunching data...</h3>");
