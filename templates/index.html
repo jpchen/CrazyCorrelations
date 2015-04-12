@@ -100,7 +100,7 @@
 
 		    <form div="signin-form" id="form" action="/submit" method="POST">
 		        <fieldset>
-		          <legend style="font-size:30px;">User Information</legend>
+		          <legend style="font-size:30px;"><font color="#6C1B34">User Information</font></legend>
 		            <!-- <input type="text" name= "username" placeholder="JonDoe"> -->
 
 		            <paper-input-decorator id="decorator" style="font-size:20px;" label="Enter Twitter Handle" floatinglabel="{{floatingLabel}}" value="" layout="" vertical="">
@@ -120,7 +120,13 @@
 		      <div class="row">
 		      	{% if key %}
 		      	
-		        <center><h2>There seems to be a strong correlation between your friends talking about {{ key }} and {{ news }}!</h2>
+		        <center>
+		        	<h2><font color="#941C2F">There seems to be a strong correlation </font> 
+		        	<br/>between your friends talking about 
+		        	<br/><font size="6" color="#2EBE62">{{ key }} </font>
+		        	<br/>and 
+		        	<br/><font size="6" color="#016FB9">{{ news }}!</font></h2>
+		       
 		       
             	<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count"></div>
             	{% endif %}
