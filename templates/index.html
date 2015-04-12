@@ -2,7 +2,24 @@
   <h1> Crazy Correlations </h1>
   <h3>Using Machine Learning to draw crazy correlations</h3>
   <img src='http://imgs.xkcd.com/comics/decline.png'>
+<body>
+	<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 'your-app-id',
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+      };
 
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
      <div class="row">
         <div class="large-6 columns">
 		     <form div="signin-form" action="/submit" method="POST">
@@ -17,5 +34,9 @@
 		</div>
           <div class="row">
             <center><h2>{{ result }}</h2><center>
+            {% if result %}
+            	<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count"></div>
+            {% endif %}
           </div>
+    </body>
 </html>
