@@ -118,8 +118,10 @@
 	      		<!-- <paper-spinner active id="wait"></paper-spinner> -->
 
 		      <div class="row">
-		        <center><h2>{{ result }}</h2>
-		        {% if result %}
+		      	{% if result %}
+		      	
+		        <center><h2>There seems to be a strong correlation between your friend's talking about {{ result }}</h2>
+		       
             	<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count"></div>
             	{% endif %}
             	</center>
