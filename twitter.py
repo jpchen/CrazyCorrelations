@@ -1,7 +1,7 @@
 from twython import Twython
 import indicoio
 from indicoio import text_tags, batch_text_tags
-import random, sys
+import random, sys, operator
 from collections import Counter
 
 #this shit is private yo
@@ -22,16 +22,19 @@ def scrape(arg):
 	twitter = Twython(APP_KEY, access_token=ACCESS_TOKEN)
 	friends = twitter.get_friends_ids(screen_name = arg)
 
-	with open('out', 'w') as f:
-		for follower_id in friends['ids']:
-			params = {'user_id':follower_id, 'count':3 }
-			tweets = twitter.get_user_timeline(**params)
-			for tweet in tweets:
-				encoded = tweet['text'].encode("utf8")
-				results = dict(Counter(results) + Counter(text_tags(encoded)))
-				#random.choice(news)
-				#f.write(str(text_tags(encoded)))
-		print results
+	for follower_id in friends['ids']:
+		params = {'user_id':follower_id, 'count':3 }
+		tweets = twitter.get_user_timeline(**params)
+		for tweet in tweets:
+			encoded = tweet['text'].encode("utf8")
+			results = dict(Counter(results) + Counter(text_tags(encoded)))
+			#random.choice(news)
+			#f.write(str(text_tags(encoded)))
+	#print results
+	key = max(results.iteritems(), key=operator.itemgetter(1))[0]
+	ans = "There seems to be a strong correlation between your friend's talking about " + key + " and " + random.choice(news) + "!"
+	print ans
+	return ans
 
 if __name__ == "__main__":
     scrape(sys.argv[1:])
