@@ -12,7 +12,15 @@ news = ['Obama and Castro Meeting for the first time in half a century',
         'Hillary Clinton\'s Calculus on Embracing Obama',
         'Red Sox Trumps Yankees in 19-Inning Game',
         'Empty Ebolo Clinics in Liberia hurting US Relief Effort',
-        'California Instating first Water Restrictions and Regulations']
+        'California Instating first Water Restrictions and Regulations',
+        'Jihadists attacking Iraq\'s largest oil refinery',
+        'Iran reaching nuclear deal with world powers',
+        'Maoist Rebels Killing at Least 7 Police Officers in India',
+        'Separatists Claiming Attack That Killed 20 in Pakistan',
+        'Tennessee Woman Giving Birth while in Coma',
+        'Bird flu being confirmed at 1 ND turkey farm',
+        'Ted Cruz Super PACs raising $31 million'
+        ]
 
 def scrape(arg):
 	results = {}
@@ -33,7 +41,6 @@ def scrape(arg):
 	#print results
 	key = max(results.iteritems(), key=operator.itemgetter(1))[0]
 	ans = "There seems to be a strong correlation between your friend's talking about " + key + " and " + random.choice(news) + "!"
-	print ans
 	return ans
 
 if __name__ == "__main__":
