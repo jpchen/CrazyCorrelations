@@ -20,10 +20,10 @@
   <link rel="import"
     href="/static/components/paper-tabs/paper-tabs.html">
   <link rel="import" href="/static/components/paper-input/paper-input.html">
-  <link rel="import" href="/static/components/paper-button/paper-button.html">
-  <link rel="import" href="/static/components/paper-fab/paper-fab.html">
+  <!-- <link rel="import" href="/static/components/paper-button/paper-button.html"> -->
+  <!-- <link rel="import" href="/static/components/paper-fab/paper-fab.html"> -->
   <link rel="import" href="/static/components/paper-spinner/paper-spinner.html">
-  <link rel="import" href="/static/components/paper-icon-button/paper-icon-button.html">
+  <!-- <link rel="import" href="/static/components/paper-icon-button/paper-icon-button.html"> -->
 
 
   <style>
@@ -72,6 +72,40 @@
 </head>
 
 <body unresolved>
+
+	<div id="fb-root"></div>
+	<script>
+	window.onload = function(){ 
+    	window.fbAsyncInit = function() {
+	        FB.init({
+	          appId      : '1564785910458447',
+	          xfbml      : true,
+	          version    : 'v2.3'
+	        });
+	      };
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1564785910458447";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		document.getElementById('shareBtn').onclick = function() {
+		  FB.ui({
+		  method: 'feed',
+		  description: "There seems to be a strong correlation between {{key}} and {{news}}!",
+		  link: 'http://localhost:5000/',
+		  redirect_uri: 'http://localhost:5000/',
+		  caption: 'An example caption',
+		}, function(response){});
+		}
+	
+	};
+	
+	</script>
+<!-- <button id="shareBtn" class="btn btn-success clearfix">Share Dialog</button> -->
+
   <core-header-panel>
 
     <paper-tabs selected="0" noink="" role="tablist" horizontal="" center="" layout="">
@@ -117,6 +151,7 @@
 
 	      		<!-- <paper-spinner active id="wait"></paper-spinner> -->
 
+
 		      <div class="row">
 		      	{% if key %}
 		      	
@@ -128,7 +163,8 @@
 		        	<br/><font size="6" color="#016FB9">{{ news }}!</font></h2>
 		       
 		       
-            	<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count"></div>
+            	<!-- <div id="shareBtn" class="fb-share-button" data-href="http://crazycorrelations.me" data-layout="button"></div> -->
+
             	{% endif %}
             	</center>
 		      </div>
@@ -139,25 +175,7 @@
 	<div flex></div>
   	</div>
 </div>
-	<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : 'your-app-id',
-          xfbml      : true,
-          version    : 'v2.3'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
   <script>
-
 
     $('#form').submit(function() {
     	console.log("HERE");
